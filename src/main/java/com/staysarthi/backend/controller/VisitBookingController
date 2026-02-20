@@ -1,0 +1,21 @@
+package com.staysarthi.backend.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.staysarthi.backend.model.VisitBooking;
+import com.staysarthi.backend.repository.VisitBookingRepository;
+
+@RestController
+@RequestMapping("/api/visits")
+@CrossOrigin(origins = "http://localhost:5173")
+public class VisitBookingController {
+
+  @Autowired
+  private VisitBookingRepository visitBookingRepository;
+
+  @PostMapping("/book")
+  public VisitBooking bookVisit(@RequestBody VisitBooking booking) {
+    return visitBookingRepository.save(booking);
+  }
+}
