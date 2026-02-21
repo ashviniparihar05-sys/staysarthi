@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Share2 } from "lucide-react";
-
+import API from "../api";
 /* ─── Amenity Icon Map ─────────────────────────────────────── */
 const AMENITY_ICONS = {
   "Study Table & Chair": (
@@ -217,7 +217,8 @@ const PropertyDetail = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/api/properties/${id}`)
+      // .get(`http://localhost:8080/api/properties/${id}`)
+      axios.get(`${API}/api/properties/${id}`)
       .then((res) => {
         setProperty(res.data);
         const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
