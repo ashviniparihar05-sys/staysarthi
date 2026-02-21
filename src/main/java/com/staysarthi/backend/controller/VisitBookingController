@@ -9,6 +9,11 @@ import com.staysarthi.backend.repository.VisitBookingRepository;
 @RestController
 @RequestMapping("/api/visits")
 @CrossOrigin(origins = "http://localhost:5173")
+
+@CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://your-vercel-app.vercel.app"
+})
 public class VisitBookingController {
 
   @Autowired
