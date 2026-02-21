@@ -5,12 +5,13 @@ import WhyStaySarthi from "../components/WhyStaySarthi";
 import HowItWorks from "../components/HowItWorks";
 import FeaturedListings from "../components/FeaturedListings";
 import WhatMakesUsDifferent from "../components/WhatMakesUsDifferent";
+import API from "../api";
 const Home = () => {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/properties")
+      .get("${API}/api/properties")
       .then((res) => {
         console.log(res.data);
         setProperties(res.data);
