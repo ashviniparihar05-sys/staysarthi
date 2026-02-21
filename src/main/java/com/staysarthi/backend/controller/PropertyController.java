@@ -178,7 +178,8 @@ public class PropertyController {
     property.setGender(gender);
 
     // Save image URL (NOT local path)
-    property.setImageUrl("http://localhost:8080/uploads/" + fileName);
+    property.setImageUrl("https://staysarthi-production.up.railway.app/uploads/filename" + fileName);
+    
 
     return service.addProperty(property);
   }
