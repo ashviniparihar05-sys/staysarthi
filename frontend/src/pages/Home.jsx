@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("${API}/api/properties")
+      .get(`${API}/api/properties`)
       .then((res) => {
         console.log(res.data);
         setProperties(res.data);
