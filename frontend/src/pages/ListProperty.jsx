@@ -581,7 +581,7 @@ const ListProperty = () => {
     data.append("image", formData.image);
 
     try {
-      await axios.post("${API}/api/properties", data, {
+      await axios.post(`${API}/api/properties`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
