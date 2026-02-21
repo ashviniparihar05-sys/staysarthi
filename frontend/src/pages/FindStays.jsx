@@ -332,10 +332,11 @@ const FindStays = () => {
   // const [search, setSearch] = useState(initialLocation);
   // const [stayType, setStayType] = useState(initialType || "All");
   // const [gender, setGender] = useState(initialGender || "All");
-
+const API = "https://staysarthi-production.up.railway.app";
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/api/properties")
+    // axios
+    //   .get("http://localhost:8080/api/properties")
+    axios.get(`${API}/api/properties`)
       .then((res) => {
         console.log("API Response:", res.data);
         setProperties(res.data);
