@@ -796,7 +796,8 @@ const FindStays = () => {
         />
       </div>
 
-      <div className="main-layout">
+      {/* <div className="main-layout"> */}
+      <div className="w-full max-w-7xl mx-auto px-4">
         {/* SIDEBAR */}
         <div className="sidebar">
           <div className="sidebar-title">
@@ -885,7 +886,8 @@ const FindStays = () => {
         </div>
 
         {/* PROPERTY GRID */}
-        <div className="property-grid">
+    {/* //    <div className="property-grid"> */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProperties.map((property) => {
             const tc = typeColor(property.type);
             const gc = genderColor(property.gender);
