@@ -314,7 +314,11 @@ const FindStays = () => {
   const [maxPrice, setMaxPrice] = useState(15000);
   const [minPrice, setMinPrice] = useState(0);
   const [selectedAmenities, setSelectedAmenities] = useState([]);
-  const [favorites, setFavorites] = useState([]);
+  //const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+  const saved = localStorage.getItem("favorites");
+  return saved ? JSON.parse(saved) : [];
+});
   const [gateTiming, setGateTiming] = useState("Any");
 
   const locationHook = useLocation();
@@ -345,6 +349,20 @@ const FindStays = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+  const toggleFavorite = (id) => {
+  const numericId = Number(id);
+
+  let updated;
+
+  if (favorites.includes(numericId)) {
+    updated = favorites.filter((fav) => fav !== numericId);
+  } else {
+    updated = [...favorites, numericId];
+  }
+
+  setFavorites(updated);
+  localStorage.setItem("favorites", JSON.stringify(updated));
+};
 
   const handleShare = (property) => {
     const url = `${window.location.origin}/property/${property.id}`;
@@ -446,7 +464,8 @@ const FindStays = () => {
         .search-bar {
           margin-top: 20px;
           padding: 10px 16px;
-          width: 320px;
+           width: 100%;
+  max-width: 320px;
           border-radius: 10px;
           border: none;
           font-size: 14px;
@@ -458,7 +477,7 @@ const FindStays = () => {
 
         .main-layout {
           display: flex;
-          padding: 28px 40px;
+          padding: 28px 24px;
           gap: 24px;
           align-items: flex-start;
         }
@@ -580,6 +599,8 @@ const FindStays = () => {
           .sidebar { width: 100%; position: static; }
           .find-header { padding: 24px 20px; }
           .search-bar { width: 100%; }
+           .card-img {
+    height: 200px;}
         }
 
         /* CARD */
@@ -905,15 +926,15 @@ const FindStays = () => {
                     className="icon-btn icon-btn-heart"
                     onClick={() => toggleFavorite(property.id)}
                   >
-                    <Heart
-                      size={16}
-                      color={
-                        favorites.includes(property.id) ? "#ef4444" : "#94a3b8"
-                      }
-                      fill={
-                        favorites.includes(property.id) ? "#ef4444" : "none"
-                      }
-                    />
+                   <Heart
+  size={16}
+  color={
+    favorites.includes(Number(property.id)) ? "#ef4444" : "#94a3b8"
+  }
+  fill={
+    favorites.includes(Number(property.id)) ? "#ef4444" : "none"
+  }
+/>
                   </button>
 
                   {/* Share */}
