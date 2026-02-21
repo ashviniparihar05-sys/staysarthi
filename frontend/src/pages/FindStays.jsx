@@ -377,11 +377,13 @@ const FindStays = () => {
       alert("Link copied to clipboard!");
     }
   };
-
+const normalizedSearch = search.trim().toLowerCase();
   const filteredProperties = properties.filter((property) => {
     const matchesSearch =
-      property.title?.toLowerCase().includes(search.toLowerCase()) ||
-      property.location?.toLowerCase().includes(search.toLowerCase());
+      // property.title?.toLowerCase().includes(search.toLowerCase()) ||
+      // property.location?.toLowerCase().includes(search.toLowerCase());
+      property.title?.toLowerCase().includes(normalizedSearch) ||
+property.location?.toLowerCase().includes(normalizedSearch)
     const matchesType =
       stayType === "All" ||
       property.type?.toLowerCase() === stayType.toLowerCase();
