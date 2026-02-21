@@ -120,7 +120,11 @@ import com.staysarthi.backend.service.PropertyService;
 
 @RestController
 @RequestMapping("/api/properties")
-@CrossOrigin(origins = "http://localhost:5173")
+// @CrossOrigin(origins = "http://localhost:5173")
+  @CrossOrigin(origins = {
+    "http://localhost:5173",
+    "https://your-vercel-app.vercel.app"
+})
 public class PropertyController {
 
   private static final String UPLOAD_DIR = "src/main/resources/static/uploads/";
