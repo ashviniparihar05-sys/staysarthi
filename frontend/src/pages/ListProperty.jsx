@@ -534,7 +534,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import API from "../api";
 const ListProperty = () => {
   const navigate = useNavigate();
 
@@ -581,7 +581,7 @@ const ListProperty = () => {
     data.append("image", formData.image);
 
     try {
-      await axios.post("http://localhost:8080/api/properties", data, {
+      await axios.post("${API}/api/properties", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
