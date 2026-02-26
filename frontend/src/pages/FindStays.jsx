@@ -624,7 +624,7 @@ const FindStays = () => {
           .property-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 720px) {
-          .property-grid { grid-template-columns: 1fr; }
+ grid-template-columns: repeat(2, 1fr);}
           .main-layout { flex-direction: column; padding: 16px; }
           .sidebar { width: 100%; position: static; }
           .find-header { padding: 24px 20px; }
