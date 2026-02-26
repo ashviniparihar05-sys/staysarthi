@@ -619,12 +619,12 @@ const FindStays = () => {
         }
 
         /* GRID */
-        .property-grid {
-          flex: 1;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 18px;
-        }
+       .property-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
 
         @media (max-width: 1100px) {
           .property-grid { grid-template-columns: repeat(2, 1fr); }
@@ -928,8 +928,8 @@ const FindStays = () => {
         </div>
 
         {/* PROPERTY GRID */}
-        {/* //    <div className="property-grid"> */}
-        <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+        <div className="property-grid">
+          {/* <div className="grid gap-6 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"> */}
           {filteredProperties.map((property) => {
             const tc = typeColor(property.type);
             const gc = genderColor(property.gender);
