@@ -629,15 +629,46 @@ const FindStays = () => {
         @media (max-width: 1100px) {
           .property-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 720px) {
-          .property-grid { grid-template-columns: 1fr; }
-          .main-layout { flex-direction: column; padding: 16px; }
-          .sidebar { width: 100%; position: static; }
-          .find-header { padding: 24px 20px; }
-          .search-bar { width: 100%; }
-           .card-img {
-    height: 200px;}
-        }
+@media (max-width: 768px) {
+  .property-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .main-layout {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+  }
+
+  .find-header {
+    padding: 24px 20px;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .card-img {
+    height: 150px;
+  }
+
+  .card-body {
+    padding: 10px;
+  }
+
+  .card-title {
+    font-size: 13px;
+  }
+
+  .price-value {
+    font-size: 13px;
+  }
+}
 
         /* CARD */
         .property-card {
